@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5725362924447455573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5725362924447455571}
+  - component: {fileID: 5725362924447455570}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5725362924447455571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5725362924447455573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5725362924447455570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5725362924447455573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124285bceb059b94788303e6fe130f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Select
+    clip: {fileID: 8300000, guid: a287524f4c72cb542b180938e3190506, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    outputAudioMixerGroup: {fileID: -2911336941879836557, guid: e30ef1b5a0c141a459efe298b213d16f,
+      type: 2}
+  - name: BossProjectile
+    clip: {fileID: 8300000, guid: 31b7fd6fa2b6342498d893de8dec1203, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    outputAudioMixerGroup: {fileID: -2911336941879836557, guid: e30ef1b5a0c141a459efe298b213d16f,
+      type: 2}
+  - name: BossYell
+    clip: {fileID: 8300000, guid: 92c7dd5388b296448bdfbc601a0986ed, type: 3}
+    volume: 0.588
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    outputAudioMixerGroup: {fileID: -2911336941879836557, guid: e30ef1b5a0c141a459efe298b213d16f,
+      type: 2}
+  - name: Collectible
+    clip: {fileID: 8300000, guid: 14453152e4040bc4299b782f3a059080, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    outputAudioMixerGroup: {fileID: 0}
+  - name: SwingHit
+    clip: {fileID: 8300000, guid: 626018767fe1cc14595d32bead988fa2, type: 3}
+    volume: 0.5
+    pitch: 0.9
+    source: {fileID: 0}
+    loop: 0
+    outputAudioMixerGroup: {fileID: -2911336941879836557, guid: e30ef1b5a0c141a459efe298b213d16f,
+      type: 2}
+  - name: SwingMiss
+    clip: {fileID: 8300000, guid: 8503f0060633eb548946a48f4f52899d, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    outputAudioMixerGroup: {fileID: -2911336941879836557, guid: e30ef1b5a0c141a459efe298b213d16f,
+      type: 2}
+  - name: Unlocked
+    clip: {fileID: 8300000, guid: 32d0bee852896174b92d8e791be60bb6, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    outputAudioMixerGroup: {fileID: -2911336941879836557, guid: e30ef1b5a0c141a459efe298b213d16f,
+      type: 2}
+  - name: CastleTheme
+    clip: {fileID: 8300000, guid: 590ca8c1444ba2e489db25fcf84620b6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    outputAudioMixerGroup: {fileID: -8648401135155646495, guid: e30ef1b5a0c141a459efe298b213d16f,
+      type: 2}
+  - name: Climate'sTheme
+    clip: {fileID: 8300000, guid: 01d64c313c4d386409ae3e38ad4badcb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    outputAudioMixerGroup: {fileID: -8648401135155646495, guid: e30ef1b5a0c141a459efe298b213d16f,
+      type: 2}
+  - name: Anti'sTheme
+    clip: {fileID: 8300000, guid: c05fe94fef2631b4bbb5ed958eadb33e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    outputAudioMixerGroup: {fileID: -8648401135155646495, guid: e30ef1b5a0c141a459efe298b213d16f,
+      type: 2}
