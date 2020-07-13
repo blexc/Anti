@@ -28,9 +28,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 8;
     public float startTimeBtwAttack = 0.5f;
     public float startHoverTime = 2;
-    public float minJumpTime = 0.15f;
-    public float maxJumpTime = 1f;
-    public float startJumpForce = 1000f;
+    public float maxJumpTime;
+    public float maxVerticalSpeed;
+    public float startJumpSpeed;
     public Transform attackPos;
     public LayerMask whatIsHittable;
     public LayerMask whatIsGround;
@@ -41,20 +41,21 @@ public class PlayerController : MonoBehaviour
     Vector2 currentVelocity;
     bool isInvincible;
     float invincibleTimer;
+    float gravity;
     float jumpTime;
     float hoverTime;
     public bool hoverAllowed; // to prevent infinite hover
     float timeBtwAttack;
-    float jumpForce;
-    float defaultGravity;
-    float startOneWayPlatTime = 0.5f;
+    float jumpSpeed;
+    float startOneWayPlatTime = 0.25f;
     float oneWayPlatTime;
-    float startSpringTime = 0.5f;
+    float startSpringTime = 0.2f;
     float springTime;
 
     bool isStone = false;
     float startTransitionTimer = 10f;
     float transitionTimer;
+    bool isJumping;
 
     // input
     float horizontal;
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
         UIHealth.instance.health = currentHealth;
         UIHealth.instance.numOfHearts = maxHealth;
         jumpTime = maxJumpTime;
-        defaultGravity = rigidbody2d.gravityScale;
+        gravity = rigidbody2d.gravityScale;
     }
 
     void Update()
@@ -110,14 +111,47 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        currentVelocity = new Vector2(horizontal * speed, 0f);
-        rigidbody2d.velocity = currentVelocity;
-
+        float velocityX = horizontal * speed;
+        float velocityY = rigidbody2d.velocity.y;
         Vector2 move = new Vector2(horizontal, 0);
+
         if (!Mathf.Approximately(move.x, 0.0f))
         {
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
+        }
+
+        if (hoverHeld && hoverTime > 0)
+        {
+            hoverTime -= Time.deltaTime;
+            velocityY = 0;
+            hoverAllowed = false;
+        }
+
+        if (velocityY < 0)
+        {
+            rigidbody2d.gravityScale = gravity * 0.8f;
+        }
+
+        if (springTime > 0)
+        {
+            velocityY = jumpSpeed;
+            isJumping = false;
+            springTime -= Time.deltaTime;
+        }
+        else if (jumpTime < maxJumpTime && isJumping)
+        {
+            velocityY = jumpSpeed;
+            jumpTime += Time.deltaTime;
+        }
+
+        velocityY = Mathf.Clamp(velocityY, -maxVerticalSpeed*0.8f, maxVerticalSpeed);
+        rigidbody2d.velocity = new Vector2(velocityX, velocityY);
+        print(rigidbody2d.velocity.ToString());
+
+        if (jumpReleased)
+        {
+            isJumping = false;
         }
 
         animator.SetFloat("Look X", lookDirection.x);
@@ -156,18 +190,12 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     jumpTime = 0;
-                    jumpForce = startJumpForce;
+                    jumpSpeed = startJumpSpeed;
+                    isJumping = true;
                 }
             }
         }
         oneWayPlatTime = Mathf.Clamp(oneWayPlatTime - Time.deltaTime, 0, startOneWayPlatTime);
-        if (jumpReleased)
-        {
-            if (jumpTime > minJumpTime)
-                jumpTime = maxJumpTime;
-            else
-                jumpTime = maxJumpTime - minJumpTime;
-        }
         #endregion
 
         #region attacking and springing
@@ -194,7 +222,7 @@ public class PlayerController : MonoBehaviour
                     if (thingsToHit[i].tag == "Spring")
                     {
                         springTime = startSpringTime;
-                        jumpForce = startJumpForce * 1.5f;
+                        jumpSpeed = startJumpSpeed * 1.5f;
                     }
                     else if (thingsToHit[i].tag == "Boss")
                     {
@@ -221,36 +249,6 @@ public class PlayerController : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         #endregion
 
-    }
-
-    private void FixedUpdate()
-    {
-        if (hoverHeld && hoverTime > 0)
-        {
-            hoverTime -= Time.fixedDeltaTime;
-            jumpTime = maxJumpTime;
-            rigidbody2d.gravityScale = 0;
-            hoverAllowed = false;
-        }
-        else
-        {
-            rigidbody2d.gravityScale = defaultGravity;
-            if (rigidbody2d.velocity.y < 0)
-                rigidbody2d.AddForce(Vector2.down * 400);
-        }
-
-        if (springTime > 0)
-        {
-            rigidbody2d.AddForce(Vector2.up * jumpForce);
-            jumpForce = Mathf.Max(450f, jumpForce - jumpForce / 50);
-            springTime -= Time.fixedDeltaTime;
-        }
-        else if (jumpTime < maxJumpTime)
-        {
-            rigidbody2d.AddForce(Vector2.up * jumpForce);
-            jumpForce = Mathf.Max(450f, jumpForce - jumpForce / 50);
-            jumpTime += Time.fixedDeltaTime;
-        }
     }
 
     public void ChipCollected()
@@ -438,7 +436,7 @@ public class PlayerController : MonoBehaviour
         hasHovering = false;
         hasSword = false;
         hasZap = false;
-        startJumpForce = 0;
+        startJumpSpeed = 0;
         animator.SetBool("Solid", true);
         isStone = true;
         transitionTimer = startTransitionTimer;

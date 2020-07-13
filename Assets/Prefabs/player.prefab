@@ -50,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -97,10 +98,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.5
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 20
+  m_GravityScale: 6
   m_Material: {fileID: 6200000, guid: be5f0fe9cce4d14499d46bae2a07ceb5, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -173,9 +174,9 @@ MonoBehaviour:
   speed: 8
   startTimeBtwAttack: 0.5
   startHoverTime: 2
-  minJumpTime: 0.15
-  maxJumpTime: 1
-  startJumpForce: 1000
+  maxJumpTime: 0.35
+  maxVerticalSpeed: 21
+  startJumpSpeed: 13
   attackPos: {fileID: 8319592911190451742}
   whatIsHittable:
     serializedVersion: 2
@@ -232,6 +233,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

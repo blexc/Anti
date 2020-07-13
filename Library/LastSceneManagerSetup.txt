@@ -1,15 +1,15 @@
 sceneSetups:
 - path: Assets/Scenes/Title.unity
-  isLoaded: 0
-  isActive: 0
+  isLoaded: 1
+  isActive: 1
   isSubScene: 0
 - path: Assets/Scenes/MainMenu.unity
   isLoaded: 0
   isActive: 0
   isSubScene: 0
 - path: Assets/Scenes/Game.unity
-  isLoaded: 1
-  isActive: 1
+  isLoaded: 0
+  isActive: 0
   isSubScene: 0
 - path: Assets/Scenes/Credits.unity
   isLoaded: 0

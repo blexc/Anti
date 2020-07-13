@@ -6,8 +6,8 @@ public class FloatingEffect : MonoBehaviour
 {
     Transform trans;
     float time;
-    public float period = 1f;
-    public float amp = 0.005f;
+    public float period;
+    public float amp;
 
     private void Start()
     {

@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -241,6 +242,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -433,6 +435,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -598,6 +601,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -631,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a460cbb4c8a759447937031bc3d16272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 3
+  scrollSpeed: 0.5
   targetRect: {fileID: 703309994}
   textBoxes:
   - {fileID: 1397328871}
@@ -690,10 +694,18 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Play Testers/ Special Thanks:\r\nWillis Peterson\r\nHunter Rick\n"
+  m_text: 'Play Testers/ Special Thanks:
+
+    Willis Peterson
+
+    Hunter Rick
+
+    Michael
+    Chapman'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4b4ab136ea20f7498af3257cce240a6, type: 2}
   m_sharedMaterial: {fileID: -2293169442021614827, guid: d4b4ab136ea20f7498af3257cce240a6,
@@ -761,15 +773,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.86676025, z: 0, w: -47.567413}
+  m_margin: {x: 0, y: 0.86676025, z: 0, w: -85.9595}
   m_textInfo:
     textComponent: {fileID: 1295696031}
-    characterCount: 60
+    characterCount: 75
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 8
+    spaceCount: 9
+    wordCount: 10
     linkCount: 0
-    lineCount: 3
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -847,6 +859,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1187,6 +1200,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.2, g: 0.25882354, b: 0.40392157, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
