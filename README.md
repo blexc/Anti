@@ -5,7 +5,7 @@ Q: Who made this?
 A: me  
 
 Q: When was this game made?  
-A: Between December 2019 and Janurary 2020.  
+A: Between December 2019 and Janurary 2020. Reworked the jump in July 2020.
 
 Q: What challenges came about when creating this?  
 A: I had never used Unity before this, nor had I used CSharp.  
