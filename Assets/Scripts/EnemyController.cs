@@ -166,7 +166,7 @@ public class EnemyController : MonoBehaviour
     private bool IsGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, 
-            boxCollider2D.bounds.size, 0, Vector2.down, 0.25f, whatIsGround);
+            boxCollider2D.bounds.size, 0, Vector2.down, 0.2f, whatIsGround);
         return raycastHit.collider != null;
     }
 

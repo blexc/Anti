@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     float timeBtwAttack;
     float jumpForce;
     float defaultGravity;
-    float startOneWayPlatTime = 0.25f;
+    float startOneWayPlatTime = 0.5f;
     float oneWayPlatTime;
     float startSpringTime = 0.5f;
     float springTime;
