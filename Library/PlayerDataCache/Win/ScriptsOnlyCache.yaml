@@ -45,6 +45,7 @@ ScriptsOnlyBuild:
     - Cinemachine.NoiseSettings
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
+    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -1369,4 +1370,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Game.unity
   - Assets/Scenes/Credits.unity
-  playerPath: C:/Users/alext/Documents/Unity Builds/Anti.exe
+  playerPath: C:/Users/alext/Documents/Github Projects/Anti v1.2/Anti.exe

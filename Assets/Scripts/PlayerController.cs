@@ -147,7 +147,6 @@ public class PlayerController : MonoBehaviour
 
         velocityY = Mathf.Clamp(velocityY, -maxVerticalSpeed*0.8f, maxVerticalSpeed);
         rigidbody2d.velocity = new Vector2(velocityX, velocityY);
-        print(rigidbody2d.velocity.ToString());
 
         if (jumpReleased)
         {

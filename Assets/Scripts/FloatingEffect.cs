@@ -17,9 +17,10 @@ public class FloatingEffect : MonoBehaviour
 
     private void Update()
     {
-        time += Time.deltaTime;
         if (Time.timeScale != 0)
         {
+            time += Time.deltaTime;
+            if (time > 1000) time = 0;
             trans.position += Vector3.up * amp * Mathf.Sin(period * time);
         }
     }
